@@ -1,4 +1,4 @@
-import { useCartStore } from "../store/cartStore";
+import { useCartStore } from "../Store/cartStore";
 
 
 export default function Cart() {
