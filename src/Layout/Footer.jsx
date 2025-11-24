@@ -6,7 +6,7 @@ export default function Footer() {
             <div className="container mx-auto px-6 flex flex-col items-center text-center gap-4">
                 {/* اللوجو والاسم */}
                 <img
-                    src="/public/images/ChatGPT Image Oct 23, 2025, 11_06_16 AM.png"
+                    src="/images/ChatGPT Image Oct 23, 2025, 11_06_16 AM.png"
                     alt="شعار مكتبة الشروق"
                     className="w-24 h-24 rounded-full shadow-lg mb-3 hover:scale-110 transition-transform duration-500"
                 />

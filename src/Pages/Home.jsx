@@ -24,19 +24,19 @@ const cartoon = products.filter((p) => p.category === "cartoon");
           loop={true}
           className="w-full h-[100vh]">
           <SwiperSlide>
-            <img src="/public/images/school-tools-with-calculator.jpg" className="w-full h-[100vh] object-cover" alt="slide 1" />
+            <img src="/images/school-tools-with-calculator.jpg" className="w-full h-[100vh] object-cover" alt="slide 1" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/images/premium_photo-1663957835183-a11d378f63b8.jpeg" className="w-full h-[100vh] object-cover" alt="slide 2" />
+            <img src="/images/premium_photo-1663957835183-a11d378f63b8.jpeg" className="w-full h-[100vh] object-cover" alt="slide 2" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/images/premium_photo-1663127374925-56558b81cd38.jpeg" className="w-full h-[100vh] object-cover" alt="slide 3" />
+            <img src="/images/premium_photo-1663127374925-56558b81cd38.jpeg" className="w-full h-[100vh] object-cover" alt="slide 3" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/images/خصم.webp" className="w-full h-[100vh] object-cover" alt="slide 3" />
+            <img src="/images/خصم.webp" className="w-full h-[100vh] object-cover" alt="slide 3" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/public/images/WhatsApp Image 2025-10-24 at 08.44.12_2d55373a.jpg" className="w-full h-[100vh] object-contain" alt="slide 3" />
+            <img src="/images/WhatsApp Image 2025-10-24 at 08.44.12_2d55373a.jpg" className="w-full h-[100vh] object-contain" alt="slide 3" />
           </SwiperSlide>
         </Swiper>
       </div>
