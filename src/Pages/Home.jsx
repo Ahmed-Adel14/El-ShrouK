@@ -36,7 +36,7 @@ const cartoon = products.filter((p) => p.category === "cartoon");
             <img src="/images/خصم.webp" className="w-full h-[100vh] object-cover" alt="slide 3" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/images/WhatsApp Image 2025-10-24 at 08.44.12_2d55373a.jpg" className="w-full h-[100vh] object-contain" alt="slide 3" />
+            <img src="/images/omar.jpg" className="w-full h-[100vh] object-contain" alt="slide 3" />
           </SwiperSlide>
         </Swiper>
       </div>

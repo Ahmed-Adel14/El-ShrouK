@@ -25,7 +25,7 @@ export default function Navbar({ transparent }) {
                                 <p className="text-[14px] text-[#2a3b8e]">Al Shrouk</p>
                             </div>
                             <Link to={"/"} className="w-15 h-12">
-                                <img className="w-full h-full object-cover rounded-[5px] cursor-pointer" src="/images/ChatGPT Image Oct 23, 2025, 11_06_16 AM.png" alt="logo" />
+                                <img className="w-full h-full object-cover rounded-[5px] cursor-pointer" src="/images/لوجو.png" alt="logo" />
                             </Link>
                         </div>
 
