@@ -52,12 +52,12 @@ const cartoon = products.filter((p) => p.category === "cartoon");
       <div className="container">
         <div className="mt-10">
           <div className="w-full h-[70vh]">
-            <img src="/public/images/بوستر1.webp" alt="" />
+            <img src="/images/بوستر1.webp" alt="" />
           </div>
         </div>
         <div className="mt-50 mb-20">
           <div className="w-full h-[70vh]">
-            <img src="/public/images/بوستر2.webp" alt="" />
+            <img src="/images/بوستر2.webp" alt="" />
           </div>
         </div>
       </div>
