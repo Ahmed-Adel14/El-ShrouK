@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { GrView } from "react-icons/gr";
 import { useCartStore } from "../Store/cartStore";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +12,9 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, AnimatePresence } from "framer-motion"; // ← Framer Motion
 
+
 export default function ProductCard({ title, products }) {
+    
     const addToCart = useCartStore((state) => state.addToCart);
     const [addedProductId, setAddedProductId] = useState(null);
     const [previewProduct, setPreviewProduct] = useState(null);
@@ -65,12 +68,17 @@ export default function ProductCard({ title, products }) {
                     }}
                     spaceBetween={20}
                     slidesPerView={4.5}
-                    grabCursor={true}>
+                    grabCursor={true}
+                    preventClicks={false} // يسمح بالضغط بعد السحب
+                    preventClicksPropagation={false}>
                     {products.map((product) => (
                         <SwiperSlide key={product.id}>
                             <div className="w-[280px] mx-auto rounded-[10px] flex flex-col gap-4 mt-6">
                                 <div className="relative group h-[35vh] flex justify-center items-center bg-white overflow-hidden rounded-t-[10px]">
-                                    {/* صورة المنتج */}
+                                    {/* اللينك اللي يودّي للصفحة */}
+                                    <Link to={`/product/${product.id}`} className="absolute inset-0 z-0" />
+
+                                    {/* الصورة */}
                                     <LazyLoadImage
                                         effect="blur"
                                         src={product.image}
@@ -79,40 +87,37 @@ export default function ProductCard({ title, products }) {
                                     />
 
                                     {/* أيقونة العين */}
-                                    <div className="absolute inset-0 flex items-center justify-start pl-2 pointer-events-auto">
-                                        <svg
+                                    <div className="absolute inset-0 flex items-center justify-start pl-2 z-20">
+                                        <div
                                             onClick={(e) => {
+                                                e.stopPropagation(); // مهم جداً
                                                 e.preventDefault();
                                                 setPreviewProduct(product);
                                             }}
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="h-10 w-10 text-white bg-black/50 rounded-full p-2
-                                           transform -translate-x-10 opacity-0
-                                           group-hover:translate-x-0 group-hover:opacity-100
-                                           transition-all duration-300 cursor-pointer"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth={2}
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                            />
-                                        </svg>
+                                            className="h-10 w-10 text-[#373a8b] rounded-full p-2 bg-[#e5e7eb]
+                transform -translate-x-10 opacity-0
+                group-hover:translate-x-0 group-hover:opacity-100
+                transition-all duration-300 cursor-pointer hover:bg-[#373a8b] hover:text-white
+                flex items-center justify-center">
+                                            <GrView className="text-xl" />
+                                        </div>
                                     </div>
 
                                     {/* زر الإضافة */}
                                     <div
                                         onClick={(e) => {
+                                            e.stopPropagation(); // مهم جداً
                                             e.preventDefault();
                                             handleAddToCart(product);
                                         }}
-                                        className={`absolute bottom-[-50px] left-0 w-full text-center py-3 text-sm font-medium transition-all duration-500 group-hover:bottom-0 cursor-pointer ${
-                                            addedProductId === product.id ? "bg-green-500 text-white" : "bg-[#2a3b8e] text-white"
-                                        }`}>
-                                        {addedProductId === product.id ? "تمت الإضافة " : "إضافة إلى السلة"}
+                                        className="
+                absolute bottom-0 left-0 w-full text-center py-3 text-sm font-medium 
+                transition-all duration-500 cursor-pointer
+                overflow-hidden bg-neutral-400 text-white
+                z-20
+            ">
+                                        <div className="absolute inset-0 bg-[#373a8b] translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
+                                        <span className="relative z-10">{addedProductId === product.id ? "تمت الإضافة " : "إضافة إلى السلة"}</span>
                                     </div>
                                 </div>
 

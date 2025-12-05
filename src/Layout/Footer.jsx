@@ -2,54 +2,54 @@ import { FaWhatsapp, FaPhoneAlt, FaFacebookF, FaInstagram, FaTiktok } from "reac
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-[#2a3b8e] to-[#e80a89] text-white py-10 mt-16">
-            <div className="container mx-auto px-6 flex flex-col items-center text-center gap-4">
-                {/* اللوجو والاسم */}
+        <footer className="bg-[#f8f8f8] text-gray-800 py-12 mt-20 shadow-inner border-t border-gray-300">
+            <div className="container mx-auto px-6 flex flex-col items-center text-center gap-6">
+                {/* اللوجو */}
                 <img
                     src="/images/شعار.png"
                     alt="شعار مكتبة الشروق"
-                    className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full shadow-lg mb-3 hover:scale-110 transition-transform duration-500"
+                    className="w-28 h-28 md:w-36 md:h-36 rounded-2xl shadow-xl mb-3 border-4 border-white hover:rotate-3 hover:scale-105 transition-all duration-500"
                 />
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">مكتبة الشروق</h2>
+
+                {/* اسم المكتبة */}
+                <h2 className="text-3xl md:text-4xl font-extrabold tracking-wide text-[#ff6b35] drop-shadow-sm">مكتبة الشروق</h2>
 
                 {/* الوصف */}
-                <p className="text-base sm:text-lg md:text-xl opacity-90 max-w-full sm:max-w-xl md:max-w-2xl leading-relaxed">
-                    مكتبة الشروق هي وجهتك الأولى لكل ما يتعلق بالأدوات المكتبية، القرطاسية، والألعاب التعليمية. نقدم لك منتجات عالية الجودة بأسعار تنافسية، تناسب جميع الأعمار والاهتمامات، مع لمسة من
-                    الإبداع والمرح لتجعل كل يوم دراسي أكثر تميزًا ومتعة.
+                <p className="text-base md:text-lg max-w-2xl leading-loose text-gray-600">
+                    نوفر لك أفضل أدوات المدرسة، القرطاسية، الألعاب التعليمية، والهدايا المميزة. هدفنا تقديم تجربة تسوّق ممتعة تجمع بين الجودة، السعر المناسب، ولمسة الإبداع.
                 </p>
 
-                {/* أرقام التواصل */}
-                <div className="flex flex-col sm:flex-row items-center gap-4 mt-4">
-                    <div className="flex items-center gap-2">
-                        <FaWhatsapp className="text-green-400 text-xl" />
-                        <span className="text-base">+20 100 456 7890</span>
+                {/* تواصل */}
+                <div className="flex flex-col sm:flex-row items-center gap-5 mt-4">
+                    <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all">
+                        <FaWhatsapp className="text-green-500 text-2xl" />
+                        <span className="text-base font-medium">+20 100 456 7890</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                        <FaPhoneAlt className="text-white text-xl" />
-                        <span className="text-base">02 1234 5678</span>
+
+                    <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-xl shadow-md hover:shadow-lg transition-all">
+                        <FaPhoneAlt className="text-blue-500 text-2xl" />
+                        <span className="text-base font-medium">02 1234 5678 </span>
                     </div>
                 </div>
 
-                {/* 👤 صاحب المكتبة */}
-                <p className="mt-3 text-sm sm:text-base text-gray-200 font-medium">إشراف: هاني محمد أبو الحمايل</p>
+                {/* صاحب المكتبة */}
+                <p className="mt-3 text-sm md:text-base text-gray-700 font-semibold bg-white px-4 py-1 rounded-lg shadow-sm">إشراف: هاني محمد أبو الحمايل</p>
 
-                {/* أيقونات السوشيال */}
-                <div className="flex gap-5 mt-6 text-2xl sm:text-3xl">
-                    <a href="#" className="hover:text-green-300 transition-colors duration-300">
-                        <FaFacebookF />
+                {/* سوشيال */}
+                <div className="flex gap-6 mt-6 text-3xl">
+                    <a href="#" className="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform">
+                        <FaFacebookF className="text-blue-600" />
                     </a>
-                    <a href="#" className="hover:text-pink-300 transition-colors duration-300">
-                        <FaInstagram />
+                    <a href="#" className="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform">
+                        <FaInstagram className="text-pink-500" />
                     </a>
-                    <a href="#" className="hover:text-gray-300 transition-colors duration-300">
-                        <FaTiktok />
+                    <a href="#" className="p-3 bg-white rounded-full shadow-md hover:scale-110 transition-transform">
+                        <FaTiktok className="text-black" />
                     </a>
                 </div>
 
                 {/* حقوق النشر */}
-                <div className="text-sm sm:text-base text-gray-100 mt-6 opacity-90 border-t border-white/30 pt-4 w-full text-center">
-                    © {new Date().getFullYear()} مكتبة الشروق - جميع الحقوق محفوظة.
-                </div>
+                <div className="text-sm md:text-base text-gray-600 mt-8 border-t border-gray-300 pt-4 w-full">© {new Date().getFullYear()} مكتبة الشروق - جميع الحقوق محفوظة.</div>
             </div>
         </footer>
     );
