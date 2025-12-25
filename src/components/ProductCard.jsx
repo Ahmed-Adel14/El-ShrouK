@@ -1,3 +1,4 @@
+
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -12,9 +13,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import { motion, AnimatePresence } from "framer-motion"; // ← Framer Motion
 
-
 export default function ProductCard({ title, products }) {
-    
     const addToCart = useCartStore((state) => state.addToCart);
     const [addedProductId, setAddedProductId] = useState(null);
     const [previewProduct, setPreviewProduct] = useState(null);
@@ -73,11 +72,12 @@ export default function ProductCard({ title, products }) {
                     preventClicksPropagation={false}>
                     {products.map((product) => (
                         <SwiperSlide key={product.id}>
-                            <div className="w-[280px] mx-auto rounded-[10px] flex flex-col gap-4 mt-6">
+                            {/* الكارد كله كزر للانتقال */}
+                            <div
+                                className="w-[280px] mx-auto rounded-[10px] flex flex-col gap-4 mt-6 cursor-pointer"
+                                onClick={() => (window.location.href = `/product/${product.documentId}`)} // هنا الكليك يروح للصفحة
+                            >
                                 <div className="relative group h-[35vh] flex justify-center items-center bg-white overflow-hidden rounded-t-[10px]">
-                                    {/* اللينك اللي يودّي للصفحة */}
-                                    <Link to={`/product/${product.id}`} className="absolute inset-0 z-0" />
-
                                     {/* الصورة */}
                                     <LazyLoadImage
                                         effect="blur"
@@ -90,15 +90,14 @@ export default function ProductCard({ title, products }) {
                                     <div className="absolute inset-0 flex items-center justify-start pl-2 z-20">
                                         <div
                                             onClick={(e) => {
-                                                e.stopPropagation(); // مهم جداً
-                                                e.preventDefault();
+                                                e.stopPropagation(); // يمنع الانتقال للصفحة عند الضغط على العين
                                                 setPreviewProduct(product);
                                             }}
                                             className="h-10 w-10 text-[#373a8b] rounded-full p-2 bg-[#e5e7eb]
-                transform -translate-x-10 opacity-0
-                group-hover:translate-x-0 group-hover:opacity-100
-                transition-all duration-300 cursor-pointer hover:bg-[#373a8b] hover:text-white
-                flex items-center justify-center">
+              transform -translate-x-10 opacity-0
+              group-hover:translate-x-0 group-hover:opacity-100
+              transition-all duration-300 cursor-pointer hover:bg-[#373a8b] hover:text-white
+              flex items-center justify-center">
                                             <GrView className="text-xl" />
                                         </div>
                                     </div>
@@ -106,16 +105,13 @@ export default function ProductCard({ title, products }) {
                                     {/* زر الإضافة */}
                                     <div
                                         onClick={(e) => {
-                                            e.stopPropagation(); // مهم جداً
-                                            e.preventDefault();
+                                            e.stopPropagation(); // يمنع الانتقال عند الضغط على الزر
                                             handleAddToCart(product);
                                         }}
-                                        className="
-                absolute bottom-0 left-0 w-full text-center py-3 text-sm font-medium 
-                transition-all duration-500 cursor-pointer
-                overflow-hidden bg-neutral-400 text-white
-                z-20
-            ">
+                                        className="absolute bottom-0 left-0 w-full text-center py-3 text-sm font-medium 
+            transition-all duration-500 cursor-pointer
+            overflow-hidden bg-neutral-400 text-white
+            z-20">
                                         <div className="absolute inset-0 bg-[#373a8b] translate-x-full group-hover:translate-x-0 transition-transform duration-500"></div>
                                         <span className="relative z-10">{addedProductId === product.id ? "تمت الإضافة " : "إضافة إلى السلة"}</span>
                                     </div>
@@ -184,3 +180,4 @@ export default function ProductCard({ title, products }) {
         </div>
     );
 }
+// ووووووووووووووووووووو

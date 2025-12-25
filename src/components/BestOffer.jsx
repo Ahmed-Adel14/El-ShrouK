@@ -1,25 +1,59 @@
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { getCategories } from "../Store/Category";
 
 export default function BestOffer() {
-    const offers = [
-        { id: 1, image: "/images/العاب اطفال.webp" },
-        { id: 2, image: "/images/أدوات فنيه.webp" },
-        { id: 3, image: "/images/أدوات مدرسيهj.webp" },
-        { id: 4, image: "/images/أدوات قرطاسيه.webp" },
-        { id: 5, image: "/images/شخصيات كرتونيه.webp" },
-        { id: 6, image: "/images/هدايا.webp" },
-        { id: 7, image: "/images/ادوات السفر.webp" },
-        { id: 8, image: "/images/قطع تركيب.webp" },
+    const [categoriesData, setCategoriesData] = useState([]);
+
+    const offersConfig = [
+        { keyWord: "ألعاب", img: "/images/العاب اطفال.webp" },
+        { keyWord: "فني", img: "/images/أدوات فنيه.webp" },
+        { keyWord: "مدر", img: "/images/أدوات مدرسيهj.webp" },
+        { keyWord: "مكتب", img: "/images/أدوات قرطاسيه.webp" },
+        { keyWord: "كرتون", img: "/images/شخصيات كرتونيه.webp" },
+        { keyWord: "هدايا", img: "/images/هدايا.webp" },
+        { keyWord: "سفر", img: "/images/ادوات السفر.webp" },
+        { keyWord: "تركيب", img: "/images/قطع تركيب.webp" },
     ];
 
-  return (
-      <div dir="ltr" className="container">
-          <div className="grid grid-cols-4 gap-4 ">
-              {offers.map((offer) => (
-                  <div key={offer.id} className=" overflow-hidden">
-                      <img src={offer.image} alt="صورة عرض" className="w-full h-full object-cover transform transition duration-300 hover:scale-105 cursor-pointer"  />
-                  </div>
-              ))}
-          </div>
-      </div>
-  );
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const data = await getCategories();
+
+                const mappedCategories = offersConfig
+                    .map((offer) => {
+                        const category = data.find((cat) => cat.name.includes(offer.keyWord));
+                        if (category) {
+                            return { ...category, img: offer.img };
+                        }
+                        return null;
+                    })
+                    .filter(Boolean); // نحذف أي null
+
+                setCategoriesData(mappedCategories);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+
+        fetchCategories();
+    }, []);
+
+    if (categoriesData.length === 0) return null;
+
+    return (
+        <div dir="ltr" className="container py-10">
+            <div className="grid grid-cols-4 gap-4">
+                {categoriesData.map((cat) => (
+                    <div key={cat.id} className="overflow-hidden cursor-pointer">
+                        <Link to={`/productbycat/${cat.documentId}`}>
+                            <img src={cat.img} alt={cat.name} className="w-full h-full object-cover hover:scale-105 transition" />
+                            <p className="text-center mt-2 font-medium text-[#2a3b8e]">{cat.name}</p>
+                        </Link>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 }

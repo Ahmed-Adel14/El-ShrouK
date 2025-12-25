@@ -1,185 +1,106 @@
-export const products = [
-    // === أحدث المنتجات ===
-    {
-        id: 1,
-        image: "/images/chair.webp",
-        title: "طاولة وكرسي للأطفال مانشستر سيتي – أثاث دراسة ولعب بطابع كرة القدم",
-        price: "250 ج.م",
-        category: "latest",
-        description: "طاولة وكرسي بتصميم نادي مانشستر سيتي، مناسب للأطفال أثناء الدراسة أو الرسم أو اللعب، مصنوع من خامات آمنة ومريحة.",
-    },
-    {
-        id: 2,
-        image: "/images/Narito.webp",
-        title: "لوحة كانفاس ناروتو – سطح مستوحى من الأنمي للأطفال للرسم والمشاريع الفنية",
-        price: "300 ج.م",
-        category: "latest",
-        description: "لوحة كانفاس بجودة عالية تحمل طابع أنمي ناروتو، مثالية لعشاق الأنمي ومحبي الديكور الإبداعي في غرف الأطفال.",
-    },
-    {
-        id: 3,
-        image: "/images/pen2.webp",
-        title: "كلاس قلم دودلر 1.0 ملم – مجموعة من 10 أقلام زرقاء",
-        price: "20 ج.م",
-        category: "latest",
-        description: "أقلام دودلر بحبر أزرق سائل وكتابة ناعمة، مثالية للمدرسة أو العمل اليومي، تصميم مريح وسلس أثناء الاستخدام.",
-    },
-    {
-        id: 4,
-        image: "/images/color.webp",
-        title: "طقم تلوين ومفاجآت من كوكوميلون",
-        price: "25 ج.م",
-        category: "latest",
-        description: "مجموعة تلوين ممتعة بشخصيات كوكوميلون المفضلة للأطفال، تحتوي على أدوات فنية تساعد على تنمية مهاراتهم الإبداعية.",
-    },
-    {
-        id: 5,
-        image: "/images/pen.webp",
-        title: "ملاحظات لاصقة هيلو كيتي – دفاتر لطيفة وممتعة",
-        price: "15 ج.م",
-        category: "latest",
-        description: "دفاتر ملاحظات لاصقة بتصميم هيلو كيتي، مثالية لتدوين الملاحظات أو تزيين الدفاتر، بألوان جذابة ومظهر أنيق.",
-    },
-    {
-        id: 6,
-        image: "/images/اقلام.webp",
-        title: "ستابيلو قلم 68- طقم 10 أقلام",
-        price: "8 ج.م",
-        category: "latest",
-        description: "مجموعة أقلام فلوماستر من ستابيلو بألوان زاهية وحبر عالي الجودة، مناسبة للرسم والكتابة اليومية.",
-    },
-    {
-        id: 7,
-        image: "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=800",
-        title: "سيارة ألعاب صغيرة للأطفال – ألوان متعددة",
-        price: "70 ج.م",
-        category: "latest",
-        description: "سيارة صغيرة بألوان زاهية وخامات متينة، تتيح للأطفال قضاء وقت ممتع ومليء بالمرح والحركة.",
-    },
+const STRAPI_URL = "http://localhost:1337";
 
-    // === الأكثر مبيعًا ===
-    {
-        id: 8,
-        image: "/images/1.webp",
-        title: "بيك- قلم جاف 4 في 1 Bic Ballpoint Pen",
-        price: "7 ج.م",
-        category: "bestsell",
-        description: "قلم بيك متعدد الألوان (أزرق، أسود، أحمر، أخضر) بجودة كتابة ممتازة ومريحة، مثالي للاستخدام المدرسي والمكتبي.",
-    },
-    {
-        id: 9,
-        image: "/images/2.webp",
-        title: "ستابيلو- مظهرات بوس باستيل- 4 ألوان",
-        price: "18 ج.م",
-        category: "bestsell",
-        description: "مجموعة مظهرات من ستابيلو بألوان باستيل ناعمة، مثالية لتحديد النصوص بأناقة أثناء الدراسة أو العمل.",
-    },
-    {
-        id: 10,
-        image: "/images/3.webp",
-        title: "باكيت اقلام بيك كريستال لون أزرق",
-        price: "8 ج.م",
-        category: "bestsell",
-        description: "علبة تحتوي على أقلام بيك كريستال الكلاسيكية باللون الأزرق، كتابة سلسة وجافة مثالية للاستخدام اليومي.",
-    },
-    {
-        id: 11,
-        image: "/images/4.webp",
-        title: "بليبي مجموعة أنشطة التلوين 13 في 1 للأطفال",
-        price: "50 ج.م",
-        category: "bestsell",
-        description: "مجموعة تلوين تعليمية من بليبي تحتوي على 13 قطعة متنوعة تشجع الأطفال على الإبداع وتنمية مهاراتهم.",
-    },
-    {
-        id: 12,
-        image: "/images/5.webp",
-        title: "ديلي ملف حلقتين A4 – سعة 345 ورقة",
-        price: "150 ج.م",
-        category: "bestsell",
-        description: "ملف ذو حلقتين من ديلي بتصميم متين وأنيق، يتسع حتى 345 ورقة، مثالي لتنظيم المستندات والمشاريع.",
-    },
+export const fetchProducts = async (page = 1, pageSize = 20) => {
+    try {
+        const response = await fetch(`${STRAPI_URL}/api/products?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`);
 
-    // === أدوات مدرسية بشخصيات كرتونية ===
-    {
-        id: 13,
-        image: "/images/6.webp",
-        title: "مجموعة أقلام ضغط 5 قطع من هيلو كيتي",
-        price: "10 ج.م",
-        category: "cartoon",
-        description: "مجموعة أقلام ضغط بتصميم هيلو كيتي اللطيف، مناسبة للأطفال ومحبي الشخصيات الكرتونية.",
-    },
-    {
-        id: 14,
-        image: "/images/7.webp",
-        title: "ملاحظات لاصقة هيلو كيتي – دفاتر لطيفة وممتعة",
-        price: "18 ج.م",
-        category: "cartoon",
-        description: "دفاتر ملاحظات بتصميم هيلو كيتي الكرتوني، تضيف لمسة مرحة أثناء الدراسة أو تدوين المهام اليومية.",
-    },
-    {
-        id: 15,
-        image: "/images/8.webp",
-        title: "المبراة ناروتو 3 قطع – مبراة أنمي للمدرسة",
-        price: "12 ج.م",
-        category: "cartoon",
-        description: "مبراة على شكل شخصيات أنمي ناروتو، تضيف لمسة مميزة لمكتب الطالب وتشجع على التنظيم.",
-    },
-    {
-        id: 16,
-        image: "/images/9.webp",
-        title: "الممحاة هيلو كيتي 6 قطع – ممحاة لطيفة للمدرسة",
-        price: "25 ج.م",
-        category: "cartoon",
-        description: "ممحاة بتصميمات هيلو كيتي الرقيقة، مثالية للأطفال وتمنح تجربة كتابة نظيفة وجميلة.",
-    },
-    {
-        id: 17,
-        image: "/images/10.webp",
-        title: "زيبرا- ساراسا 0.5 - كرت 10 أقلام",
-        price: "18 ج.م",
-        category: "cartoon",
-        description: "مجموعة أقلام زيبرا ساراسا 0.5 مم، كتابة انسيابية دقيقة، مثالية للطلاب والفنانين.",
-    },
+        const data = await response.json();
 
-    // === العروض المميزة ===
-    {
-        id: 18,
-        image: "/images/13.webp",
-        title: "مجموعة مضمار سباق ديناصور 177 قطعة",
-        price: "250 ج.م",
-        category: "bestOffer",
-        description: "لعبة تركيب سباق ديناصورات ممتعة تحتوي على 177 قطعة، تنمي خيال الطفل وحبه للمغامرات.",
-    },
-    {
-        id: 19,
-        image: "/images/14.webp",
-        title: "بيك كريستال- باكيت اقلام جافة لون أزرق- 50 قلم",
-        price: "15 ج.م",
-        category: "bestOffer",
-        description: "علبة ضخمة تحتوي على 50 قلم بيك كريستال أزرق، مثالية للمدارس والمكاتب.",
-    },
-    {
-        id: 20,
-        image: "/images/15.webp",
-        title: "لعبة الأركان الخمسة التنفاسية للمعلومات 5PILLARS",
-        price: "250 ج.م",
-        category: "bestOffer",
-        description: "لعبة تعليمية ممتعة تجمع بين المعرفة والتحدي، تساعد على تنمية التفكير والسرعة للأطفال.",
-    },
-    {
-        id: 21,
-        image: "/images/16.webp",
-        title: "فبريانو دفتر رسم أبيض 25×35 سم",
-        price: "40 ج.م",
-        category: "bestOffer",
-        description: "دفتر رسم فبريانو عالي الجودة بأوراق ناعمة مناسبة للرسم بالألوان والأقلام الرصاص.",
-    },
-    {
-        id: 22,
-        image: "/images/17.webp",
-        title: "لعبة الأركان الخمسة عن السيرة النبوية 5PILLARS",
-        price: "150 ج.م",
-        category: "bestOffer",
-        description: "نسخة خاصة من لعبة الأركان الخمسة تركز على السيرة النبوية، ممتعة ومفيدة للأطفال والأسرة.",
-    },
-];
+        const products = data.data.map((item) => ({
+            id: item.id,
+            documentId: item.documentId,
+            title: item.name || item.title,
+            name: item.name,
+            slug: item.slug,
+            price: `${item.price} جنيه`,
+            description: extractDescription(item.description),
+            image: item.main_image?.url ? `${STRAPI_URL}${item.main_image.url}` : "/placeholder-image.jpg",
+            gallery: item.gallery?.map((img) => `${STRAPI_URL}${img.url}`) || [],
+            category: extractCategory(item.categories),
+            categories: item.categories || [],
+            in_stock: item.in_stock !== false,
+        }));
+
+        return {
+            products,
+            pagination: data.meta.pagination,
+        };
+    } catch (error) {
+        console.error("خطأ في جلب المنتجات:", error);
+        return {
+            products: [],
+            pagination: null,
+        };
+    }
+};
+
+export const fetchProductById = async (id) => {
+    try {
+        const response = await fetch(`${STRAPI_URL}/api/products/${id}?populate=*`);
+        if (!response.ok) throw new Error("فشل في جلب المنتج");
+
+        const data = await response.json();
+        const item = data.data;
+
+        return {
+            id: item.id,
+            documentId: item.documentId,
+            title: item.name || item.title,
+            name: item.name,
+            slug: item.slug,
+            price: `${item.price} جنيه`,
+            description: extractDescription(item.description),
+            image: item.main_image?.url ? `${STRAPI_URL}${item.main_image.url}` : "/placeholder-image.jpg",
+            gallery: item.gallery?.map((img) => `${STRAPI_URL}${img.url}`) || [],
+            category: extractCategory(item.categories),
+            categories: item.categories || [],
+            in_stock: item.in_stock !== false,
+            createdAt: item.createdAt,
+            updatedAt: item.updatedAt,
+        };
+    } catch (error) {
+        console.error("خطأ في جلب المنتج:", error);
+        return null;
+    }
+};
+
+function extractDescription(descriptionArray) {
+    if (!descriptionArray || !Array.isArray(descriptionArray)) return "لا يوجد وصف متاح";
+
+    return descriptionArray
+        .map((block) => {
+            if (block.type === "paragraph" && block.children) {
+                return block.children.map((child) => child.text || "").join(" ");
+            }
+            return "";
+        })
+        .filter((text) => text.trim())
+        .join("\n\n");
+}
+
+/**
+ * ⭐ هنا الإصلاح الحقيقي
+ */
+function extractCategory(categories) {
+    if (!categories || categories.length === 0) return "others";
+
+    const catName = categories[0].name?.trim();
+
+ 
+
+    if (catName === "اكسسوارات") return "bestsell";
+    if (catName === "ألعاب الأطفال") return "kidsGames";
+    if (catName === "أداوات مدرسية") return "schoolTools";
+    if (catName === "شخصيتك الكرتونية المفضلة") return "cartoon";
+    if (catName === "عروض الصيف") return "bestOffer";
+
+    return "others";
+}
+
+export const filterProductsByCategory = (products, category) => {
+    return products.filter((p) => p.category === category);
+};
+
+export const filterInStockProducts = (products) => {
+    return products.filter((p) => p.in_stock);
+};
