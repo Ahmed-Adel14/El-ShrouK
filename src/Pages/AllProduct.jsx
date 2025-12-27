@@ -73,7 +73,7 @@ export default function AllProducts() {
                 <Link to="/" className="rounded-full border px-[15px] py-[7px] border-[#2a3b8e] text-[#2a3b8e] hover:bg-[#2a3b8e] hover:text-white transition-all duration-300">
                     العودة للرئيسية
                 </Link>
-            </div>
+            </div> 
 
             {products.length === 0 ? (
                 <div className="text-center text-xl text-gray-600 mt-20">لا توجد منتجات متاحة حالياً 😅</div>

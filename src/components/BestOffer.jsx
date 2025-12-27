@@ -12,7 +12,7 @@ export default function BestOffer() {
         { keyWord: "مكتب", img: "/images/أدوات قرطاسيه.webp" },
         { keyWord: "كرتون", img: "/images/شخصيات كرتونيه.webp" },
         { keyWord: "هدايا", img: "/images/هدايا.webp" },
-        { keyWord: "سفر", img: "/images/ادوات السفر.webp" },
+        { keyWord: "اكسس", img: "/images/ادوات السفر.webp" },
         { keyWord: "تركيب", img: "/images/قطع تركيب.webp" },
     ];
 
@@ -25,11 +25,12 @@ export default function BestOffer() {
                     .map((offer) => {
                         const category = data.find((cat) => cat.name.includes(offer.keyWord));
                         if (category) {
+                            // هنا بنستخدم documentId زي ما كان شغال قبل
                             return { ...category, img: offer.img };
                         }
                         return null;
                     })
-                    .filter(Boolean); // نحذف أي null
+                    .filter(Boolean);
 
                 setCategoriesData(mappedCategories);
             } catch (error) {
@@ -57,3 +58,4 @@ export default function BestOffer() {
         </div>
     );
 }
+// زززززززززززز

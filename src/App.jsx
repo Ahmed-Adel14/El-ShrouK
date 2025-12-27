@@ -22,13 +22,14 @@ export default function App() {
                     element: <Carts />,
                 },
                 {
-                    path: "/product/:id",
+                    path: "/product/:slug",
                     element: <ProductDetails />,
                 },
                 {
                     path: "all-products",
                     element: <AllProduct />,
                 },
+           
                 {
                     path: "productbycat/:id",
                     element: <ProductsByCat />,
@@ -42,3 +43,4 @@ export default function App() {
     ]);
     return <RouterProvider router={routing} />;
 }
+// ةةةةةةةةةةةةةةةةةةةةةةةظط

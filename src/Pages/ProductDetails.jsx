@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { fetchProductById, fetchProducts } from "../Store/Prouduct";
+import { fetchProductBySlug, fetchProducts } from "../Store/Prouduct";
+
 import { useCartStore } from "../Store/cartStore";
 import Swal from "sweetalert2";
 import ProductCard from "../components/ProductCard";
@@ -10,22 +11,21 @@ export default function ProductDetails() {
     const [product, setProduct] = useState(null);
     const [products, setProducts] = useState([]);
 
-    const { id } = useParams();
+    const { slug } = useParams();
+
     const { addToCart } = useCartStore();
 
-    useEffect(() => {
-        const getData = async () => {
-            // المنتج الأساسي
-            const singleProduct = await fetchProductById(id);
-            setProduct(singleProduct);
+   useEffect(() => {
+       const getData = async () => {
+           const singleProduct = await fetchProductBySlug(slug);
+           setProduct(singleProduct);
 
-            // منتجات مقترحة (عدد صغير)
-            const res = await fetchProducts(1, 20);
-            setProducts(res.products);
-        };
+           const res = await fetchProducts(1, 20);
+           setProducts(res.products);
+       };
 
-        getData();
-    }, [id]);
+       getData();
+   }, [slug]);
 
     const bestOffers = products.filter((p) => p.category === "bestOffer");
 

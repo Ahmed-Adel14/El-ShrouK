@@ -14,19 +14,14 @@ export default function Home() {
 
     useEffect(() => {
         const getProducts = async () => {
-            const res = await fetchProducts(1, 200); // ✅ زودنا العدد بس
-           
-
-           
-
+            const res = await fetchProducts(1, 200);
             setProducts(res.products);
         };
         getProducts();
     }, []);
 
-    // ✅ نفس الفلترة بدون أي تعديل
+    // تصفية المنتجات حسب الفئات
     const bestsells = products.filter((p) => p.category === "bestsell");
-    // const cartoon = products.filter((p) => p.category === "cartoon");
     const kidsGames = products.filter((p) => p.category === "kidsGames");
     const schoolTools = products.filter((p) => p.category === "schoolTools");
 
@@ -60,14 +55,15 @@ export default function Home() {
             </div>
 
             <div className="mt-6">
-                <ProductCard title="ألعاب الأطفال" products={kidsGames} />
+                <ProductCard title="ألعاب الأطفال" products={kidsGames} categorySlug="kidsGames" />
             </div>
 
             <div className="mt-12">
                 <BestOffer />
             </div>
+
             <div className="mt-6">
-                <ProductCard title="اكسسوارات" products={bestsells} />
+                <ProductCard title="اكسسوارات" products={bestsells} categorySlug={bestsells[0]?.categories[0]?.slug || "others"} />
             </div>
 
             <div className="container">
@@ -85,12 +81,8 @@ export default function Home() {
             </div>
 
             <div className="mt-6">
-                <ProductCard title="أدوات مدرسية" products={schoolTools} />
+                <ProductCard title="أدوات مدرسية" products={schoolTools} categorySlug="schoolTools" />
             </div>
-
-            {/* <div className="mt-6">
-                <ProductCard title="أدوات مدرسية بشخصيتك المفضلة" products={cartoon} />
-            </div> */}
 
             <div dir="ltr" className="container flex mt-10">
                 <div className="w-[500px] h-[300px] flex flex-col items-center justify-center mx-auto gap-1.5 transition-all duration-500 transform hover:scale-105 hover:border-[3px] hover:border-[#2a3b8e] rounded-2xl">
@@ -110,4 +102,4 @@ export default function Home() {
         </>
     );
 }
-// زززززززززززززززززز
+// ززززززززززززززززز
